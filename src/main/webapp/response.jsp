@@ -33,7 +33,6 @@
     <h4 class="feedback">
         <a href="${pageContext.request.contextPath}/list-assignments">${message}</a>
     </h4>
-    <p class="feedback">Thông tin không hơp lệ</p>
 </div>
 
 </body>

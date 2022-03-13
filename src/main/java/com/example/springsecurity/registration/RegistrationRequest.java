@@ -1,17 +1,16 @@
 package com.example.springsecurity.registration;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
+
+import java.io.Serializable;
 
 @Getter
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class RegistrationRequest {
-    private final String firstName;
-    private final String lastName;
-    private final String email;
-    private final String password;
+public class RegistrationRequest implements Serializable {
+    private  String firstName;
+    private  String lastName;
+    private  String email;
+    private  String password;
 }
