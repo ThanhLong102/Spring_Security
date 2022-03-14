@@ -18,6 +18,7 @@
             background-size: cover;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
@@ -25,6 +26,9 @@
 </head>
 <body>
 <%@ include file="common/header.jsp" %>
+<div>
+
+</div>
 <div class="container">
     <nav class="navbar">
         <a type="button" class="btn btn-primary btn-md ml-sm-3 mt-5"
@@ -36,6 +40,7 @@
     <nav class="navbar">
         <form action="${pageContext.request.contextPath}/list-assignment-drivers" method="get">
             <label>
+                <button id="speak" type="button" style="margin-left: 200px"><i class="fa fa-microphone" style="color: red"></i></button>
                 <input name="name" id="name" class="form-control" type="text" placeholder="Search">
             </label>
             <button class="btn btn-success">Search</button>
@@ -49,7 +54,6 @@
             <button class="btn btn-success">Sort By</button>
         </form>
     </nav>
-
 
     <table class="table table-striped table-dark" id="table-data">
         <thead>
@@ -83,4 +87,18 @@
     </table>
 </div>
 </body>
+<script>
+    var speak = document.getElementById('speak');
+    var input = document.getElementById('name');
+    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    var recognition = new SpeechRecognition();
+    speak.addEventListener('click', function () {
+        recognition.start();
+        input.value = '...speaking';
+    })
+    recognition.onresult = function (e) {
+        var transcript = e.results[0][0].transcript;
+        input.value = transcript;
+    }
+</script>
 </html>
