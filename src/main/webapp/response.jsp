@@ -34,6 +34,5 @@
         <a href="${pageContext.request.contextPath}/list-assignments">${message}</a>
     </h4>
 </div>
-
 </body>
 </html>
